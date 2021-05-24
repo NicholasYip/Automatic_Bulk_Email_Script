@@ -49,6 +49,15 @@ def read_template(filename):
 names, emails = get_contacts("./emails/" + NAME_EMAIL)
 message_template = read_template("./emails/" + TEMPLATE_TEXT)
 
+attachments = []
+for path in FILES:
+    part = MIMEBase('application', "octet-stream")
+    with open("./attachments/" + path, 'rb') as file:
+        part.set_payload(file.read())
+    encoders.encode_base64(part)
+    part.add_header('Content-Disposition','attachment; filename="{}"'.format(Path(path).name))
+    attachments.append(part)
+
 with open("./emails/" + ALREADY_SENT_EMAILS, mode='a', encoding='utf-8') as already_sent_emails:
     with open("./emails/" + NAME_EMAIL, mode='r+', encoding='utf-8') as contacts_file:
         contacts_file.truncate(0)
@@ -65,14 +74,8 @@ with open("./emails/" + ALREADY_SENT_EMAILS, mode='a', encoding='utf-8') as alre
 
                 msg.attach(MIMEText(message, 'plain'))
 
-                for path in FILES:
-                    part = MIMEBase('application', "octet-stream")
-                    with open("./attachments/" + path, 'rb') as file:
-                        part.set_payload(file.read())
-                    encoders.encode_base64(part)
-                    part.add_header('Content-Disposition',
-                                    'attachment; filename="{}"'.format(Path(path).name))
-                    msg.attach(part)
+                for attachment in attachments:
+                    msg.attach(attachment)
 
                 s.send_message(msg)
 
