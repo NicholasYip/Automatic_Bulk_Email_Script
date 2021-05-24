@@ -84,7 +84,7 @@ with open("./emails/" + ALREADY_SENT_EMAILS, mode='a', encoding='utf-8') as alre
                 already_sent_emails.write(email + " " + name + '\n')
 
             except Exception as e:
-                print("There was an error with the email " + email + " addressed to " + name)
+                print("There was an error with the email " + email + " addressed to " + name + "\n")
                 contacts_file.write(email + " " + name + '\n')
 
 print("\n\nDone sending all emails")
