@@ -8,6 +8,7 @@ Three .txt files are needed, see examples of .txt files in the repo
 You need to set the subject of the email and add any attachments you want to send with the email as an array (don't forget to put the file extension ex: .pdf, .png)  
 
 Don't forget to put your email address, password also  
-Two-step verification must be disabled on your email account & allow less-secure apps to access your account (just google it)  
+Two-step verification must be disabled on your email account & allow less-secure apps to access your account (just google it)
+Change the STMP host if you are using something different than gmail
 
-CAREFUL : Test it out with your personal email before sending the emails to sponsors  
+Test it out with your personal email before sending the emails to sponsors  
