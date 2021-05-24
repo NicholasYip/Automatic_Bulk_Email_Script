@@ -16,6 +16,7 @@ from string import Template
 # don't forget to put your email address, password also
 # Two-step verification must be disabled on your email account & allow less-secure apps to access your account (just google it)
 # CAREFUL : Test it out with your personal email before sending the emails to sponsors
+# change the STMP host if you aren't using gmail.
 
 MY_ADDRESS = "PLACEHOLDER EMAIL"
 PASSWORD = "PLACEHOLDER PASSWORD"
