@@ -46,11 +46,11 @@ def read_template(filename):
     return Template(template_file_content)
 
 
-names, emails = get_contacts(NAME_EMAIL)
-message_template = read_template(TEMPLATE_TEXT)
+names, emails = get_contacts("./emails/" + NAME_EMAIL)
+message_template = read_template("./emails/" + TEMPLATE_TEXT)
 
-with open(ALREADY_SENT_EMAILS, mode='a', encoding='utf-8') as already_sent_emails:
-    with open(NAME_EMAIL, mode='r+', encoding='utf-8') as contacts_file:
+with open("./emails/" + ALREADY_SENT_EMAILS, mode='a', encoding='utf-8') as already_sent_emails:
+    with open("./emails/" + NAME_EMAIL, mode='r+', encoding='utf-8') as contacts_file:
         contacts_file.truncate(0)
         for name, email in zip(names, emails):
             try:
@@ -67,7 +67,7 @@ with open(ALREADY_SENT_EMAILS, mode='a', encoding='utf-8') as already_sent_email
 
                 for path in FILES:
                     part = MIMEBase('application', "octet-stream")
-                    with open(path, 'rb') as file:
+                    with open("./attachments/" + path, 'rb') as file:
                         part.set_payload(file.read())
                     encoders.encode_base64(part)
                     part.add_header('Content-Disposition',
