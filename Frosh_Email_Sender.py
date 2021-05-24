@@ -23,7 +23,7 @@ NAME_EMAIL = "NAME_EMAIL.txt"
 ALREADY_SENT_EMAILS = "ALREADY_SENT_EMAILS.txt"
 TEMPLATE_TEXT = "FROSH_EMAIL.txt"
 SUBJECT = "PLACEHOLDER SUBJECT"
-FILES = ["DUMMY_PDF_1", "DUMMY_PDF_2", "DUMMY_PDF_3"]
+FILES = ["DUMMY_PDF_1.pdf", "DUMMY_PDF_2.pdf", "DUMMY_PDF_3.pdf"]
 
 s = smtplib.SMTP(host='smtp.gmail.com', port=587)
 s.starttls()
